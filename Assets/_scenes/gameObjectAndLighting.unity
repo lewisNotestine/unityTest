@@ -2822,6 +2822,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94f49e14add14ec7bcd1de71fd206c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  tilt: 3
+  boundary:
+    xMin: -6
+    xMax: 6
+    zMin: -4
+    zMax: 8
 --- !u!54 &2027688897
 Rigidbody:
   m_ObjectHideFlags: 0
