@@ -1,0 +1,53 @@
+# =============== # # Unity Generated # # =============== #
+*/Temp/
+*/Obj/
+UnityGenerated/
+Library/*
+Library/*/*
+Library/*/*/*
+#NOTE: this will cause your collaborators to re-import assets periodically
+Temp/*
+Library/assetDatabase3
+Build/*
+
+#Un-ignore these specific files
+#!gLibrary/*.asset
+#!gLibrary/AssetImportState
+#!gLibrary/AssetVersioning.db
+#!gLibrary/BuildPlayer.prefs
+#!gLibrary/ScriptMapper
+#!gLibrary/assetservercachev3
+#!gLibrary/expandedItems
+#!gLibrary/guidmapper
+#!gLibrary/unity default resources
+#!gLibrary/unity editor resources
+#!gLibrary/metadata/
+
+ # ===================================== #
+ # Visual Studio / MonoDevelop generated #
+ # ===================================== #
+ExportedObj/*
+*/ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+ # ============ #
+ # OS generated #
+ # ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+
