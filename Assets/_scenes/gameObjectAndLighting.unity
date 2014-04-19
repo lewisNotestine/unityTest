@@ -2581,6 +2581,32 @@ Transform:
   - {fileID: 1796722958}
   - {fileID: 835394927}
   m_Father: {fileID: 0}
+--- !u!1 &1233267125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1233267126}
+  m_Layer: 0
+  m_Name: Shot Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233267126
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233267125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2027688892}
 --- !u!1001 &1234069375
 Prefab:
   m_ObjectHideFlags: 0
@@ -2666,7 +2692,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
@@ -2754,7 +2780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2027688892
 Transform:
   m_ObjectHideFlags: 0
@@ -2766,6 +2792,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 818709987}
+  - {fileID: 1233267126}
   m_Father: {fileID: 0}
 --- !u!64 &2027688893
 MeshCollider:
@@ -2829,6 +2856,10 @@ MonoBehaviour:
     xMax: 6
     zMin: -4
     zMax: 8
+  shot: {fileID: 100002, guid: 282ff219e82f1483780427bb85f45abb, type: 2}
+  shotSpawn: {fileID: 1233267126}
+  fireRate: .25
+  nextFire: 0
 --- !u!54 &2027688897
 Rigidbody:
   m_ObjectHideFlags: 0
