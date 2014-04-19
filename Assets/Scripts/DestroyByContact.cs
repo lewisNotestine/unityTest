@@ -5,11 +5,22 @@ using System.Collections;
 /// Destroys the owning object, as well as another object when the owning object's collider collides with it.
 /// </summary>
 public class DestroyByContact : MonoBehaviour {
-	private void OnTriggerEnter(Collider otherCollider) {
-		if(otherCollider.tag == "Boundary") {
-			return;
-		}
+	[SerializeField] private GameObject mExplosion;
+	[SerializeField] private GameObject mPlayerExplosion; //TODO: should be responsibility of player 
 
+	public GameObject explosion {get{return mExplosion;} set{mExplosion = value;}}
+	public GameObject playerExplosion {get{return mPlayerExplosion;} set{mPlayerExplosion = value;}}
+
+	private void OnTriggerEnter(Collider otherCollider) {
+		if (otherCollider.tag == "Boundary") {
+			return;
+		} 
+		Instantiate (explosion, transform.position, transform.rotation);
+
+		//TODO: this should be the responsibility of Player probably.
+		if (otherCollider.tag == "Player") {
+			Instantiate(playerExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+		}
 		Destroy(otherCollider.gameObject);
 		Destroy(gameObject);
 	}	
