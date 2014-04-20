@@ -6,6 +6,8 @@ using System.Collections;
 /// </summary>
 public class GameController : MonoBehaviour {
 
+	private const string SCORE = "Score: ";
+
 	public GameObject hazard;
 	public Vector3 spawnValues;
 	public int hazardCount;
@@ -13,8 +15,23 @@ public class GameController : MonoBehaviour {
 	public float startWait;
 	public float waveWait;
 	
+	public GUIText scoreText;
+	private int score;
+	
+	
+	public void AddScore(int newScoreValue) {
+		score += newScoreValue;
+		UpdateScore();
+	}
+	
 	private void Start() {
+		score = 0;
+		UpdateScore();
 		StartCoroutine(SpawnWaves());
+	}
+	
+	private void UpdateScore() {
+		scoreText.text = SCORE + score;
 	}
 
 	private IEnumerator SpawnWaves() {
