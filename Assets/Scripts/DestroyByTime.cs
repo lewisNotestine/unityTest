@@ -6,6 +6,9 @@ using System.Collections;
 /// </summary>
 public class DestroyByTime : MonoBehaviour {
 	
+	/// <summary>
+	/// The life time in seconds for the GameObject.
+	/// </summary>
 	public float lifeTime;
 
 	private void Start() {
