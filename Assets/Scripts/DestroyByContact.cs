@@ -34,6 +34,7 @@ public class DestroyByContact : MonoBehaviour {
 		//TODO: this should be the responsibility of Player probably.
 		if (otherCollider.tag == "Player") {
 			Instantiate(playerExplosion, otherCollider.transform.position, otherCollider.transform.rotation);
+			gameController.GameOver();
 		}
 		
 		gameController.AddScore(scoreValue);
