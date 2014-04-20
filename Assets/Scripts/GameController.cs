@@ -6,7 +6,11 @@ using System.Collections;
 /// </summary>
 public class GameController : MonoBehaviour {
 
+	//TODO: there has to be a better way than declaring consts?	
 	private const string SCORE = "Score: ";
+	private const string GAME_OVER = "Game Over!";
+	
+	private const int START_SCORE = 0;
 
 	public GameObject hazard;
 	public Vector3 spawnValues;
@@ -16,6 +20,12 @@ public class GameController : MonoBehaviour {
 	public float waveWait;
 	
 	public GUIText scoreText;
+	public GUIText restartText;
+	public GUIText gameOverText;
+	
+	private bool gameOver;
+	private bool restart;
+	
 	private int score;
 	
 	
@@ -24,10 +34,27 @@ public class GameController : MonoBehaviour {
 		UpdateScore();
 	}
 	
+	public void GameOver() {
+		gameOverText.text = GAME_OVER;
+		gameOver = true;
+	}	
+	
 	private void Start() {
-		score = 0;
+		gameOver = false;
+		restart = false;
+		restartText.text = string.Empty;
+		gameOverText.text = string.Empty;
+		score = START_SCORE;
 		UpdateScore();
 		StartCoroutine(SpawnWaves());
+	}
+	
+	private void Update() {
+		if (restart) {
+			if (Input.GetKeyDown(KeyCode.R)) {
+				Application.LoadLevel(Application.loadedLevel);
+			}
+		} 
 	}
 	
 	private void UpdateScore() {
@@ -41,13 +68,18 @@ public class GameController : MonoBehaviour {
 			for (int i = 0; i < hazardCount; i++) {
 				Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x) , spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
-				Debug.Log ("instantiating Hazard: " + i);
 				Instantiate(hazard, spawnPosition, spawnRotation);
 	
 				//Co-routines, operate asynchronously
 				yield return new WaitForSeconds(spawnWait);
 			}
 			yield return new WaitForSeconds(waveWait);
+			
+			if (gameOver) {
+				restartText.text = "Press 'R' for Restart";
+				restart = true;
+				break;
+			}
 		}
 	}
 }
