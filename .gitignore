@@ -10,19 +10,6 @@ Temp/*
 Library/assetDatabase3
 Build/*
 
-#Un-ignore these specific files
-#!gLibrary/*.asset
-#!gLibrary/AssetImportState
-#!gLibrary/AssetVersioning.db
-#!gLibrary/BuildPlayer.prefs
-#!gLibrary/ScriptMapper
-#!gLibrary/assetservercachev3
-#!gLibrary/expandedItems
-#!gLibrary/guidmapper
-#!gLibrary/unity default resources
-#!gLibrary/unity editor resources
-#!gLibrary/metadata/
-
  # ===================================== #
  # Visual Studio / MonoDevelop generated #
  # ===================================== #
